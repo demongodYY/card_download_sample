@@ -113,7 +113,7 @@ const Banner: React.FC<{src?: string}> = ({src = null}) => {
         ctx.translate(30, 30);
         return draw(ctx, width - 30 * 2, height - 30 * 2);
       };
-      ctx.setLineDash([3, 30]);
+      ctx.setLineDash([2, 28]);
       ctx.lineWidth = 3;
       ctx.strokeStyle = '#aaaaaa';
       draw(ctx, 900, 810);
