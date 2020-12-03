@@ -23,6 +23,7 @@ const Card: React.FC<IPCard> = ({data}) => {
       link.download = title;
       link.href = dataUrl;
       link.click();
+      link.remove();
     });
   };
   const [maskShow, setMaskShow] = useState(false);
@@ -59,8 +60,12 @@ const Header: React.FC<IPHeader> = ({point, forWho}) => {
     <div className="header">
       <div className="point">{point}</div>
       <div className="forWho">
-        {arrforWho?.map(text => {
-          return <div className="forWho-tip">{text}</div>;
+        {arrforWho?.map((text, index) => {
+          return (
+            <div className="forWho-tip" key={index}>
+              {text}
+            </div>
+          );
         })}
       </div>
     </div>
@@ -85,7 +90,6 @@ const Content: React.FC<{
 
 const Banner: React.FC<{src?: string}> = ({src = null}) => {
   const canvasRef = useRef(null);
-  const [imgData, setImgData] = useState(null);
   const imgWrapperRef = useRef(null);
 
   const getImgData = () => {
@@ -106,10 +110,10 @@ const Banner: React.FC<{src?: string}> = ({src = null}) => {
           return;
         }
         ctx.strokeRect(0, 0, width, height);
-        ctx.translate(20, 20);
-        return draw(ctx, width - 20 * 2, height - 20 * 2);
+        ctx.translate(30, 30);
+        return draw(ctx, width - 30 * 2, height - 30 * 2);
       };
-      ctx.setLineDash([2, 20]);
+      ctx.setLineDash([3, 30]);
       ctx.lineWidth = 3;
       ctx.strokeStyle = '#aaaaaa';
       draw(ctx, 900, 810);

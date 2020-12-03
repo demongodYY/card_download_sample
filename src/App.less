@@ -16,4 +16,28 @@ div {
   display: flex;
   flex-wrap: wrap;
   zoom: 0.35;
+  .page-header {
+    width: 100%;
+    padding: 50px;
+    .header-btn {
+      font-size: 40px;
+      padding: 16px 32px;
+      background-color: #333333;
+      color: white;
+    }
+  }
+}
+
+.loading-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
